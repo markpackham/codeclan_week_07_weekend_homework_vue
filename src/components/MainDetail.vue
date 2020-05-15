@@ -29,11 +29,4 @@ export default {
 </script>
 
 <style>
-.detail {
-  padding: 1rem;
-}
-.film-description {
-  max-width: 60%;
-  padding: 0.5rem 0;
-}
 </style>

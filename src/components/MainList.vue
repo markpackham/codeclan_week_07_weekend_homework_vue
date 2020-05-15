@@ -18,9 +18,13 @@
       <ul>
         <li v-for="(film, index) in favFilms" :film="film" :key="index">
           {{film.title}}
-          <button v-on:click="removeFav(film)">Remove: {{film.title}}</button>
+          <button
+            class="btn-danger"
+            v-on:click="removeFav(film)"
+          >Remove: {{film.title}}</button>
         </li>
       </ul>
+      <button class="btn-danger" v-on:click="removeAllFavs()">Remove All Favs</button>
     </div>
 
     <h3>All Films</h3>
@@ -53,6 +57,9 @@ export default {
     },
     removeFav(film) {
       this.favFilms.splice(this.favFilms.indexOf(film), 1);
+    },
+    removeAllFavs() {
+      this.favFilms = [];
     }
   }
 };

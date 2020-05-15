@@ -72,14 +72,25 @@ h4 {
   padding: 1rem;
 }
 button {
-  padding: 0.5rem;
-  margin: 1rem;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+}
+button:hover {
+  font-size: 1.1rem;
+  border-width: 0.2rem;
+}
+.btn-danger {
+  background-color: red;
+  color: white;
+  font-weight: bold;
 }
 ul {
   list-style: none;
 }
 .list {
   padding: 1rem;
+  min-width: 40%;
 }
 .main-container {
   display: flex;
@@ -88,5 +99,12 @@ ul {
 .main-footer {
   text-align: center;
   margin-top: 2rem;
+}
+.detail {
+  padding: 1rem;
+}
+.film-description {
+  max-width: 60%;
+  padding: 0.5rem 0;
 }
 </style>
