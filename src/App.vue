@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Title</h1>
     <main-detail></main-detail>
-    <main-list></main-list>
+    <main-list :films="films"></main-list>
     <main-footer></main-footer>
   </div>
 </template>
@@ -17,18 +17,11 @@ export default {
   name: "app",
   data() {
     return {
-      data: {}
+      films: [],
     };
   },
   computed: {},
   methods: {
-    grabData: function() {
-      fetch()
-        .then(res => res.json())
-        .then(data => (this.data = data))
-        .catch(error => handleError(error));
-    },
-
     handleError: function(error) {
       if (error.status == "404") {
         console.log("Page not found", error.status);
@@ -39,16 +32,19 @@ export default {
       } else {
         console.log(error.status);
       }
-    }
+    },
   },
   mounted() {
-    grabData();
+    fetch("https://ghibliapi.herokuapp.com/films")
+      .then(res => res.json())
+      .then(films => (this.films = films))
+      .catch(error => handleError(error));
   },
   components: {
     "main-list": MainList,
     "main-detail": MainDetail,
-    "main-footer": MainFooter
-  }
+    "main-footer": MainFooter,
+  },
 };
 </script>
 
@@ -66,10 +62,24 @@ body {
 h1 {
   text-align: center;
 }
+h1,
+h2,
+h3 {
+  padding: 1rem;
+}
 ul {
   list-style: none;
 }
-.main-footer{
+.list {
+  cursor: pointer;
+}
+.list li:hover {
+  font-size: 1.3rem;
+  color: blue;
+}
+.main-footer {
   text-align: center;
 }
 </style>
+
+#app > div.list > ol > li:nth-child(1)
