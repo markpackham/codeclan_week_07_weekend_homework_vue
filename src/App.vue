@@ -5,6 +5,12 @@
       <main-list :films="films"></main-list>
       <main-detail></main-detail>
     </div>
+    <div class="locations-list">
+      <locations-list :locations="locations"></locations-list>
+    </div>
+    <div class="people-list">
+      <people-list :people="people"></people-list>
+    </div>
     <main-footer></main-footer>
   </div>
 </template>
@@ -14,16 +20,38 @@ import MainList from "./components/MainList";
 import MainDetail from "./components/MainDetail";
 import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
+import LocationsList from "./components/LocationsList";
+import PeopleList from "./components/PeopleList";
 
 export default {
   name: "app",
   data() {
     return {
-      films: []
+      films: [],
+      locations: [],
+      people: []
     };
   },
   computed: {},
   methods: {
+    getFilms: function() {
+      fetch("https://ghibliapi.herokuapp.com/films?limit=250")
+        .then(res => res.json())
+        .then(films => (this.films = films))
+        .catch(error => handleError(error));
+    },
+    getLocations: function() {
+      fetch("https://ghibliapi.herokuapp.com/locations?limit=250")
+        .then(res => res.json())
+        .then(locations => (this.locations = locations))
+        .catch(error => handleError(error));
+    },
+    getPeople: function() {
+      fetch("https://ghibliapi.herokuapp.com/people?limit=250")
+        .then(res => res.json())
+        .then(people => (this.people = people))
+        .catch(error => handleError(error));
+    },
     handleError: function(error) {
       if (error.status == "404") {
         console.log("Page not found", error.status);
@@ -37,16 +65,17 @@ export default {
     }
   },
   mounted() {
-    fetch("https://ghibliapi.herokuapp.com/films")
-      .then(res => res.json())
-      .then(films => (this.films = films))
-      .catch(error => handleError(error));
+    this.getFilms();
+    this.getLocations();
+    this.getPeople();
   },
   components: {
     "main-list": MainList,
     "main-detail": MainDetail,
     "main-header": MainHeader,
-    "main-footer": MainFooter
+    "main-footer": MainFooter,
+    "locations-list": LocationsList,
+    "people-list": PeopleList
   }
 };
 </script>
