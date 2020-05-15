@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <h1>Title</h1>
+    <div class="main-container">
     <main-detail></main-detail>
     <main-list :films="films"></main-list>
+    </div>
     <main-footer></main-footer>
   </div>
 </template>
 
 <script>
-import { eventBus } from "@/main.js";
 import MainList from "./components/MainList";
 import MainDetail from "./components/MainDetail";
 import MainFooter from "./components/MainFooter";
@@ -71,15 +72,18 @@ ul {
   list-style: none;
 }
 .list {
+  padding: 1rem;
   cursor: pointer;
 }
 .list li:hover {
   font-size: 1.3rem;
   color: blue;
 }
+.main-container {
+  display: flex;
+  justify-content: space-around;
+}
 .main-footer {
   text-align: center;
 }
 </style>
-
-#app > div.list > ol > li:nth-child(1)
