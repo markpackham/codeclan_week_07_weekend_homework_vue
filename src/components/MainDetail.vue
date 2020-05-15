@@ -1,12 +1,11 @@
 <template>
   <div class="detail">
-      <h2>Details</h2>
-        <div v-if="film">
-            <h2>{{film.title}}</h2>
-            <p class="film-description">{{film.description}}</p>
-            <p>Released: {{film.release_date}}</p>
-            </div>
+    <div v-if="film">
+      <h2>{{film.title}}</h2>
+      <p class="film-description">{{film.description}}</p>
+      <p>Released: {{film.release_date}}</p>
     </div>
+  </div>
 </template>
 
 <script>
@@ -16,7 +15,7 @@ export default {
   name: "main-detail",
   data() {
     return {
-      film: null,
+      film: null
     };
   },
   props: ["films"],
@@ -25,7 +24,7 @@ export default {
     eventBus.$on("film-selected", film => {
       this.film = film;
     });
-  },
+  }
 };
 </script>
 

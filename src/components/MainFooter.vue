@@ -11,11 +11,11 @@ export default {
   methods: {
     getTheYear: function() {
       return new Date().getFullYear();
-    },
+    }
   },
   mounted() {
     getTheYear();
-  },
+  }
 };
 </script>
 

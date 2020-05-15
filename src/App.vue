@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <h1>Title</h1>
+    <main-header></main-header>
     <div class="main-container">
-    <main-detail></main-detail>
-    <main-list :films="films"></main-list>
+      <main-list :films="films"></main-list>
+      <main-detail></main-detail>
     </div>
     <main-footer></main-footer>
   </div>
@@ -12,13 +12,14 @@
 <script>
 import MainList from "./components/MainList";
 import MainDetail from "./components/MainDetail";
+import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
 
 export default {
   name: "app",
   data() {
     return {
-      films: [],
+      films: []
     };
   },
   computed: {},
@@ -33,7 +34,7 @@ export default {
       } else {
         console.log(error.status);
       }
-    },
+    }
   },
   mounted() {
     fetch("https://ghibliapi.herokuapp.com/films")
@@ -44,8 +45,9 @@ export default {
   components: {
     "main-list": MainList,
     "main-detail": MainDetail,
-    "main-footer": MainFooter,
-  },
+    "main-header": MainHeader,
+    "main-footer": MainFooter
+  }
 };
 </script>
 
@@ -55,7 +57,7 @@ export default {
   padding: 0px;
 }
 body {
-  padding: 1rem;
+  padding: 2rem;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1rem;
   background-color: antiquewhite;
@@ -73,17 +75,13 @@ ul {
 }
 .list {
   padding: 1rem;
-  cursor: pointer;
-}
-.list li:hover {
-  font-size: 1.3rem;
-  color: blue;
 }
 .main-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .main-footer {
   text-align: center;
+  margin-top: 2rem;
 }
 </style>
