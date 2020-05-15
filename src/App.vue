@@ -67,8 +67,13 @@ h1 {
 }
 h1,
 h2,
-h3 {
+h3,
+h4 {
   padding: 1rem;
+}
+button {
+  padding: 0.5rem;
+  margin: 1rem;
 }
 ul {
   list-style: none;

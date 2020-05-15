@@ -14,7 +14,7 @@ export default {
     }
   },
   mounted() {
-    getTheYear();
+    this.getTheYear();
   }
 };
 </script>
