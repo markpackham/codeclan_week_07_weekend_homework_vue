@@ -53,14 +53,17 @@ export default {
         .catch(error => handleError(error));
     },
     handleError: function(error) {
-      if (error.status == "404") {
-        console.log("Page not found", error.status);
-      } else if (error.status == "401") {
-        console.log("Page forbidden");
-      } else if ((error.status == "500", error.status)) {
-        console.log("Server down", error.status);
-      } else {
-        console.log(error.status);
+      switch (error) {
+        case "404":
+          console.log("Page not found", error.status);
+          break;
+        case "401":
+          console.log("Page access forbidden");
+        case "500":
+          console.log("Server down");
+          break;
+        default:
+          console.log(error.status);
       }
     }
   },
