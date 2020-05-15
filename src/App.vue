@@ -3,6 +3,7 @@
     <h1>Title</h1>
     <main-detail></main-detail>
     <main-list></main-list>
+    <main-footer></main-footer>
   </div>
 </template>
 
@@ -10,7 +11,7 @@
 import { eventBus } from "@/main.js";
 import MainList from "./components/MainList";
 import MainDetail from "./components/MainDetail";
-
+import MainFooter from "./components/MainFooter";
 
 export default {
   name: "app",
@@ -21,7 +22,14 @@ export default {
   },
   computed: {},
   methods: {
-    handleError(error) {
+    grabData: function() {
+      fetch()
+        .then(res => res.json())
+        .then(data => (this.data = data))
+        .catch(error => handleError(error));
+    },
+
+    handleError: function(error) {
       if (error.status == "404") {
         console.log("Page not found", error.status);
       } else if (error.status == "401") {
@@ -34,34 +42,34 @@ export default {
     }
   },
   mounted() {
-    fetch()
-      .then(res => res.json())
-      .then(data => (this.data = data))
-      .catch(error => handleError(error));
+    grabData();
   },
   components: {
-    "main-list" : MainList,
-    "main-detail" : MainDetail
+    "main-list": MainList,
+    "main-detail": MainDetail,
+    "main-footer": MainFooter
   }
 };
 </script>
 
 <style>
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
-body{
+body {
   padding: 1rem;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1rem;
   background-color: antiquewhite;
 }
-h1{
+h1 {
   text-align: center;
 }
-ul{
+ul {
   list-style: none;
 }
-
+.main-footer{
+  text-align: center;
+}
 </style>
