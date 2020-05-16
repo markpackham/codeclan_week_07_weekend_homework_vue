@@ -1,5 +1,7 @@
 <template>
-  <div class="main-footer">Copyright {{getTheYear()}}</div>
+  <div>
+    <div class="main-footer">Copyright {{getTheYear()}}</div>
+  </div>
 </template>
 
 <script>

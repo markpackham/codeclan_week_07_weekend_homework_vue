@@ -14,6 +14,7 @@
       <people-detail class="content-section"></people-detail>
       <vehicles-list :vehicles="vehicles" class="content-section"></vehicles-list>
     </div>
+    <main-canvas></main-canvas>
     <main-footer></main-footer>
   </div>
 </template>
@@ -24,6 +25,7 @@ import MainFilter from "./components/MainFilter";
 import MainDetail from "./components/details/MainDetail";
 import MainHeader from "./components/layouts/MainHeader";
 import MainFooter from "./components/layouts/MainFooter";
+import MainCanvas from "./components/layouts/MainCanvas";
 import LocationsList from "./components/LocationsList";
 import PeopleList from "./components/PeopleList";
 import PeopleFilter from "./components/PeopleFilter";
@@ -92,6 +94,7 @@ export default {
     "main-detail": MainDetail,
     "main-header": MainHeader,
     "main-footer": MainFooter,
+    "main-canvas": MainCanvas,
     "main-filter": MainFilter,
     "locations-list": LocationsList,
     "people-list": PeopleList,
@@ -139,6 +142,9 @@ button:hover {
 ul {
   list-style: none;
 }
+canvas {
+  background: yellow;
+}
 .main-container {
   display: flex;
   flex-direction: row;
@@ -169,6 +175,11 @@ select {
   }
   .content-section {
     max-width: 85%;
+  }
+  canvas {
+    width: 0;
+    height: 0;
+    display: none;
   }
 }
 </style>
