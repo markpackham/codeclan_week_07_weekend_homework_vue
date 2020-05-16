@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h2>Select a film</h2>
+    <h2>Chose a film</h2>
     <div>
       <form v-on:submit.prevent>
         <input
+          class="search"
           type="text"
           v-model="search"
           placeholder="Search for a film"
@@ -16,7 +17,6 @@
       </select>
     </div>
 
-    <h3>Your favourite films</h3>
     <div v-if="selectedFilm">
       <button
         v-if="!favFilms.includes(selectedFilm)"

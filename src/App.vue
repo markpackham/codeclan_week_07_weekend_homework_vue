@@ -5,9 +5,9 @@
       <div v-if="!films.length">
         <h1>Content Loading</h1>
       </div>
-      <main-filter :films="films" class="content-section"></main-filter>
-      <main-detail class="content-section detail"></main-detail>
       <main-list :films="films" class="content-section"></main-list>
+      <main-filter :films="films" class="content-section"></main-filter>
+      <main-detail class="content-section"></main-detail>
       <locations-list :locations="locations" class="content-section"></locations-list>
       <people-list :people="people" class="content-section"></people-list>
       <vehicles-list :vehicles="vehicles" class="content-section"></vehicles-list>
@@ -137,17 +137,22 @@ ul {
   display: flex;
   flex-direction: row;
   align-content: flex-start;
+  flex-wrap: wrap;
 }
 .content-section {
   padding: 2rem;
+  max-width: 35%;
 }
 .main-footer {
   text-align: center;
   margin-top: 2rem;
 }
 .film-description {
-  max-width: 60%;
   padding: 0.5rem 0;
+}
+.search,
+select {
+  padding: 0.2rem;
 }
 
 @media (max-width: 600px) {
@@ -155,6 +160,9 @@ ul {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+  }
+  .content-section {
+    max-width: 85%;
   }
 }
 </style>

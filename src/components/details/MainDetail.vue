@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div>
     <div v-if="film">
       <h2>{{film.title}}</h2>
       <p class="film-description">{{film.description}}</p>
