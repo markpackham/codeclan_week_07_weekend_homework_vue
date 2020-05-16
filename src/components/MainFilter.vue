@@ -2,6 +2,15 @@
   <div>
     <h2>Select a film</h2>
     <div>
+      <form v-on:submit.prevent>
+        <input
+          type="text"
+          v-model="search"
+          placeholder="Search for a film"
+          v-on:keyup="searchForFilm"
+        />
+      </form>
+      <br />
       <select v-on:change="handleSelect" v-model="selectedFilm">
         <option v-for="(film, index) in films" :key="index" :value="film">{{film.title}}</option>
       </select>
@@ -36,12 +45,20 @@ export default {
   name: "main-filter",
   data() {
     return {
+      search: "",
       selectedFilm: {},
       favFilms: []
     };
   },
   props: ["films"],
   methods: {
+    searchForFilm() {
+      let foundFilm = this.films.find(film => {
+        return film.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+      });
+      this.selectedFilm = foundFilm;
+      eventBus.$emit("film-selected", this.selectedFilm);
+    },
     handleSelect() {
       eventBus.$emit("film-selected", this.selectedFilm);
     },

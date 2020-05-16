@@ -4,8 +4,8 @@
     <div>
       <ul>
         <li v-for="(vehicle, index) in vehicles" :vehicle="vehicle" :key="index">
-          <strong>{{vehicle.name}}:</strong>
-          {{vehicle.description}} - {{vehicle.vehicle_class}}
+          <strong>{{vehicle.name}}</strong>
+          : {{vehicle.description}} - {{vehicle.vehicle_class}}
         </li>
       </ul>
     </div>
