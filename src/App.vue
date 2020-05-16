@@ -2,11 +2,15 @@
   <div id="app">
     <main-header></main-header>
     <div class="main-container">
+      <div v-if="!films.length">
+        <h1>Content Loading</h1>
+      </div>
       <main-filter :films="films" class="content-section"></main-filter>
       <main-detail class="content-section detail"></main-detail>
       <main-list :films="films" class="content-section"></main-list>
       <locations-list :locations="locations" class="content-section"></locations-list>
       <people-list :people="people" class="content-section"></people-list>
+      <vehicles-list :vehicles="vehicles" class="content-section"></vehicles-list>
     </div>
     <main-footer></main-footer>
   </div>
@@ -20,6 +24,7 @@ import MainHeader from "./components/layouts/MainHeader";
 import MainFooter from "./components/layouts/MainFooter";
 import LocationsList from "./components/LocationsList";
 import PeopleList from "./components/PeopleList";
+import VehiclesList from "./components/VehiclesList";
 
 export default {
   name: "app",
@@ -27,7 +32,8 @@ export default {
     return {
       films: [],
       locations: [],
-      people: []
+      people: [],
+      vehicles: []
     };
   },
   computed: {},
@@ -50,6 +56,12 @@ export default {
         .then(people => (this.people = people))
         .catch(error => handleError(error));
     },
+    getVehicles: function() {
+      fetch("https://ghibliapi.herokuapp.com/vehicles?limit=250")
+        .then(res => res.json())
+        .then(vehicles => (this.vehicles = vehicles))
+        .catch(error => handleError(error));
+    },
     handleError: function(error) {
       switch (error) {
         case "404":
@@ -69,6 +81,7 @@ export default {
     this.getFilms();
     this.getLocations();
     this.getPeople();
+    this.getVehicles();
   },
   components: {
     "main-list": MainList,
@@ -77,7 +90,8 @@ export default {
     "main-footer": MainFooter,
     "main-filter": MainFilter,
     "locations-list": LocationsList,
-    "people-list": PeopleList
+    "people-list": PeopleList,
+    "vehicles-list": VehiclesList
   }
 };
 </script>
