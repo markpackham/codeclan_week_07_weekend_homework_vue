@@ -2,8 +2,11 @@
   <div>
     <h3>People List</h3>
     <div>
-      <ul>
-        <li v-for="(person, index) in people" :person="person" :key="index">{{person.name}}</li>
+      <ul class="fa-ul">
+        <li v-for="(person, index) in people" :person="person" :key="index">
+          {{person.name}}
+          <i class="fa-li fa fa-star fa-spin"></i>
+        </li>
       </ul>
     </div>
   </div>
