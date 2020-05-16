@@ -19,7 +19,7 @@
 <script>
 import MainList from "./components/MainList";
 import MainFilter from "./components/MainFilter";
-import MainDetail from "./components/MainDetail";
+import MainDetail from "./components/details/MainDetail";
 import MainHeader from "./components/layouts/MainHeader";
 import MainFooter from "./components/layouts/MainFooter";
 import LocationsList from "./components/LocationsList";
@@ -135,14 +135,11 @@ ul {
 }
 .main-container {
   display: flex;
+  flex-direction: row;
   align-content: flex-start;
-  flex-wrap: wrap;
 }
 .content-section {
   padding: 2rem;
-}
-.detail {
-  width: 70%;
 }
 .main-footer {
   text-align: center;
@@ -153,10 +150,11 @@ ul {
   padding: 0.5rem 0;
 }
 
-@media {
-  .content-section {
+@media (max-width: 600px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-    width: 90%;
   }
 }
 </style>
