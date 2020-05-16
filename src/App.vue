@@ -10,6 +10,8 @@
       <main-detail class="content-section"></main-detail>
       <locations-list :locations="locations" class="content-section"></locations-list>
       <people-list :people="people" class="content-section"></people-list>
+      <people-filter :people="people" class="content-sextion"></people-filter>
+      <people-detail class="content-section"></people-detail>
       <vehicles-list :vehicles="vehicles" class="content-section"></vehicles-list>
     </div>
     <main-footer></main-footer>
@@ -24,6 +26,8 @@ import MainHeader from "./components/layouts/MainHeader";
 import MainFooter from "./components/layouts/MainFooter";
 import LocationsList from "./components/LocationsList";
 import PeopleList from "./components/PeopleList";
+import PeopleFilter from "./components/PeopleFilter";
+import PeopleDetail from "./components/details/PeopleDetail";
 import VehiclesList from "./components/VehiclesList";
 
 export default {
@@ -91,6 +95,8 @@ export default {
     "main-filter": MainFilter,
     "locations-list": LocationsList,
     "people-list": PeopleList,
+    "people-filter": PeopleFilter,
+    "people-detail": PeopleDetail,
     "vehicles-list": VehiclesList
   }
 };

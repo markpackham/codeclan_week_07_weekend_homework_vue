@@ -3,11 +3,7 @@
     <h3>People List</h3>
     <div>
       <ul>
-        <li
-          v-for="(person, index) in people"
-          :person="person"
-          :key="index"
-        >{{person.name}} - {{person.gender}}, {{person.age}}</li>
+        <li v-for="(person, index) in people" :person="person" :key="index">{{person.name}}</li>
       </ul>
     </div>
   </div>

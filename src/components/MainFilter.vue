@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Chose a film</h2>
+    <h2>Choose a film</h2>
     <div>
       <form v-on:submit.prevent>
         <input
