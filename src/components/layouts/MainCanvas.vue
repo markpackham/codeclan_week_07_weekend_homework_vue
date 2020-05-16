@@ -26,6 +26,13 @@ export default {
     ctx.fillStyle = "black";
     ctx.stokeStyle = "black";
     ctx.fillText(text, 10, 10);
+
+    const ctxShape = canvas.getContext("2d");
+    ctxShape.beginPath();
+    ctxShape.moveTo(1600, 150);
+    ctxShape.lineTo(1600, 75);
+    ctxShape.lineTo(5, 33);
+    ctxShape.fill();
   }
 };
 </script>

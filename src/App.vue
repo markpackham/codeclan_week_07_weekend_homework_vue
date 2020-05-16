@@ -142,9 +142,6 @@ button:hover {
 ul {
   list-style: none;
 }
-canvas {
-  background: yellow;
-}
 .main-container {
   display: flex;
   flex-direction: row;
