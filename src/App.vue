@@ -157,7 +157,8 @@ canvas {
 }
 .main-footer {
   text-align: center;
-  margin-top: 2rem;
+  margin: 2rem 0 1rem 0;
+  font-style: italic;
 }
 .film-description {
   padding: 0.5rem 0;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="canvas" width="600" height="200"></canvas>
+    <canvas id="canvas" width="490" height="50"></canvas>
   </div>
 </template>
 
@@ -14,7 +14,9 @@ export default {
   mounted() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-    const text = "All data taken from, Studio Ghibli API";
+    const text = "All data taken from Studio Ghibli API";
+    ctx.fillStyle = "#f0e2e1";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = "30px Palatino sans-serif";
     ctx.textBaseline = "top";
     ctx.shadowColor = "red";
@@ -22,7 +24,8 @@ export default {
     ctx.shadowOffsetY = 0;
     ctx.shadowBlur = blur;
     ctx.fillStyle = "black";
-    ctx.fillText(text, 100, 100);
+    ctx.stokeStyle = "black";
+    ctx.fillText(text, 10, 10);
   }
 };
 </script>
