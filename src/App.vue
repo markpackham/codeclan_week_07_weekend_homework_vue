@@ -2,11 +2,11 @@
   <div id="app">
     <main-header></main-header>
     <div class="main-container">
-      <main-filter :films="films"></main-filter>
-      <main-detail></main-detail>
-      <main-list :films="films"></main-list>
-      <locations-list :locations="locations"></locations-list>
-      <people-list :people="people"></people-list>
+      <main-filter :films="films" class="content-section"></main-filter>
+      <main-detail class="content-section detail"></main-detail>
+      <main-list :films="films" class="content-section"></main-list>
+      <locations-list :locations="locations" class="content-section"></locations-list>
+      <people-list :people="people" class="content-section"></people-list>
     </div>
     <main-footer></main-footer>
   </div>
@@ -102,13 +102,6 @@ h3,
 h4 {
   padding: 1rem;
 }
-main-filter,
-main-detail,
-main-list,
-location-list,
-people-list {
-  padding: 2rem;
-}
 button {
   padding: 0.3rem;
   margin: 0.5rem;
@@ -128,17 +121,28 @@ ul {
 }
 .main-container {
   display: flex;
-  align-content: space-around;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.content-section {
+  padding: 2rem;
+}
+.detail {
+  width: 70%;
 }
 .main-footer {
   text-align: center;
   margin-top: 2rem;
 }
-.detail {
-  padding: 1rem;
-}
 .film-description {
   max-width: 60%;
   padding: 0.5rem 0;
+}
+
+@media {
+  .content-section {
+    padding: 1rem;
+    width: 90%;
+  }
 }
 </style>
