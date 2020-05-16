@@ -2,13 +2,10 @@
   <div id="app">
     <main-header></main-header>
     <div class="main-container">
-      <main-list :films="films"></main-list>
+      <main-filter :films="films"></main-filter>
       <main-detail></main-detail>
-    </div>
-    <div class="locations-list">
+      <main-list :films="films"></main-list>
       <locations-list :locations="locations"></locations-list>
-    </div>
-    <div class="people-list">
       <people-list :people="people"></people-list>
     </div>
     <main-footer></main-footer>
@@ -17,9 +14,10 @@
 
 <script>
 import MainList from "./components/MainList";
+import MainFilter from "./components/MainFilter";
 import MainDetail from "./components/MainDetail";
-import MainHeader from "./components/MainHeader";
-import MainFooter from "./components/MainFooter";
+import MainHeader from "./components/layouts/MainHeader";
+import MainFooter from "./components/layouts/MainFooter";
 import LocationsList from "./components/LocationsList";
 import PeopleList from "./components/PeopleList";
 
@@ -77,6 +75,7 @@ export default {
     "main-detail": MainDetail,
     "main-header": MainHeader,
     "main-footer": MainFooter,
+    "main-filter": MainFilter,
     "locations-list": LocationsList,
     "people-list": PeopleList
   }
@@ -85,8 +84,8 @@ export default {
 
 <style>
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 body {
   padding: 2rem;
@@ -102,6 +101,13 @@ h2,
 h3,
 h4 {
   padding: 1rem;
+}
+main-filter,
+main-detail,
+main-list,
+location-list,
+people-list {
+  padding: 2rem;
 }
 button {
   padding: 0.3rem;
@@ -120,13 +126,9 @@ button:hover {
 ul {
   list-style: none;
 }
-.list {
-  padding: 1rem;
-  min-width: 40%;
-}
 .main-container {
   display: flex;
-  justify-content: flex-start;
+  align-content: space-around;
 }
 .main-footer {
   text-align: center;

@@ -7,7 +7,7 @@
           v-for="(person, index) in people"
           :person="person"
           :key="index"
-        >{{person.name}},{{person.gender}},{{person.age}}</li>
+        >{{person.name}} - {{person.gender}}, {{person.age}}</li>
       </ul>
     </div>
   </div>
