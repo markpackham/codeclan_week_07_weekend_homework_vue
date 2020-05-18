@@ -3,10 +3,10 @@
     <div v-if="person">
       <h2>{{person.name}}</h2>
       <ul>
-        <li>Gender: {{person.gender}}</li>
-        <li>Age: {{person.age}}</li>
-        <li>Eye Color: {{person.eye_color}}</li>
-        <li>Hair Color: {{person.hair_color}}</li>
+        <li>Gender: {{person.gender.toLowerCase()}}</li>
+        <li>Age: {{person.age.toLowerCase()}}</li>
+        <li>Eye Color: {{person.eye_color.toLowerCase()}}</li>
+        <li>Hair Color: {{person.hair_color.toLowerCase()}}</li>
       </ul>
     </div>
   </div>
