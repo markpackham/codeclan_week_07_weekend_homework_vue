@@ -7,7 +7,7 @@
           <strong>{{vehicle.name}}</strong>
           : {{vehicle.description}} - {{vehicle.vehicle_class}}
           <i
-            class="fa-li fa fa-spinner fa-spin"
+            class="fa-li fa fa-diamond fa-spin"
           ></i>
         </li>
       </ul>
