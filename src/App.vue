@@ -42,7 +42,6 @@ export default {
       vehicles: []
     };
   },
-  computed: {},
   methods: {
     getFilms: function() {
       fetch("https://ghibliapi.herokuapp.com/films?limit=250")
